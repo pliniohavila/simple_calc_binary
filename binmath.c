@@ -29,6 +29,6 @@ int			main(int argc, char **argv)
 
 		free(nb1);
 		free(nb2);
-    return 0;
+    return (0);
 }
 
