@@ -4,46 +4,46 @@
 #include "calc.h"
 
 
-void		filling(char *vector, int size)
+void    filling(char *vector, int size)
 {
-		int			i;
+	int			i;
 
-		i = 0;
-		while (i < size)
-			vector[i++] = '0';
-		vector[i] = '\0';
+	 = 0;
+    while (i < size)
+        vector[i++] = '0';
+    vector[i] = '\0';
 }
 
 void    sum(char *n1, char *n2)
 {
     char    *result;
     int     carry;
-    int     bit1, bit2;
-		int			sum;
+    int     bit1;
+    int     bit2;
+	int		sum;
     int     i;
 	
-		result = (char*)malloc(sizeof(char) * MAX_LEN + 1);
-		if (result == NULL)
-			return;
-		filling(result, (MAX_LEN + 1));
-		carry = 0;
+    result = (char*)malloc(sizeof(char) * MAX_LEN + 1);
+    if (result == NULL)
+        return;
+    filling(result, (MAX_LEN + 1));
+    carry = 0;
     i = MAX_LEN;
-	  while (i > 0)
+    while (i > 0)
     {
         bit1 = n1[i - 1] - 48;
         bit2 = n2[i - 1] - 48;
-				sum = bit1 + bit2 + carry;
+		sum = bit1 + bit2 + carry;
         result[i] = (char)((sum % 2) + 48);		
         carry = sum / 2;
-			  i--;
-				//printf("Result %s - sum %d - i %d\n", result, sum, i);		
+			i--;
     }
 		i++;
     if (carry == 1)
-				result[i] = '1';
+		result[i] = '1';
     printf("Result (SUM): %s\n", result);
-		free(result);
-		return;
+    free(result);
+    return;
 }
 
 void    complete(char *end, char *start)
