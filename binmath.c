@@ -19,12 +19,12 @@ int			main(int argc, char **argv)
         return usage();
     complete(nb1, argv[1]);
     complete(nb2, argv[2]);
-    printf("NB1: %s\n", nb1);
-    printf("NB2: %s\n\n", nb2);
+    // printf("NB1: %s\n", nb1);
+    // printf("NB2: %s\n\n", nb2);
     sum_result = sum(nb1, nb2);
     printf("SUM: %s\n", sum_result);
     // two_complement(nb2);
-    // printf(nb2);
+    printf(two_complement(nb2));
 
     free(sum_result);
     // free(nb2);

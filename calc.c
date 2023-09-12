@@ -47,7 +47,7 @@ char*    sum(char *n1, char *n2)
     return (result);
 }
 
-void    two_complement(char *n)
+char*    two_complement(char *n)
 {
     int     i;
 
@@ -60,7 +60,7 @@ void    two_complement(char *n)
             n[i] = '0';
         i++;
     }
-    sum(n, "00000001");
+    return sum(n, "00000001");
 }
 
 void    complete(char *end, char *start)

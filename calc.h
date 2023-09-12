@@ -5,6 +5,6 @@
 
 char*   sum(char *n1, char *n2);
 void    complete(char *end, char *start);
-void    two_complement(char *n);
+char*   two_complement(char *n);
 
 #endif  
