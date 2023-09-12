@@ -18,12 +18,11 @@ int			main(int argc, char **argv)
     if (argc < 3)
         return usage();
     complete(nb1, argv[1]);
-    
     complete(nb2, argv[2]);
-    printf("NB1: %s \n", nb1);
-    printf("NB1: %s - NB2: %s\n\n", nb1, nb2);
+    printf("NB1: %s\n", nb1);
+    printf("NB2: %s\n\n", nb2);
     sum_result = sum(nb1, nb2);
-    // printf("SUM: %s\n", sum_result);
+    printf("SUM: %s\n", sum_result);
     // two_complement(nb2);
     // printf(nb2);
 
