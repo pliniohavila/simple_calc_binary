@@ -6,15 +6,15 @@
 
 void    filling(char *vector, int size)
 {
-	int			i;
+	int     i;
 
-	 = 0;
+	i = 0;
     while (i < size)
         vector[i++] = '0';
     vector[i] = '\0';
 }
 
-void    sum(char *n1, char *n2)
+char*    sum(char *n1, char *n2)
 {
     char    *result;
     int     carry;
@@ -23,9 +23,12 @@ void    sum(char *n1, char *n2)
 	int		sum;
     int     i;
 	
-    result = (char*)malloc(sizeof(char) * MAX_LEN + 1);
-    if (result == NULL)
-        return;
+    result = (char*)malloc((MAX_LEN + 1) * sizeof(char));
+    if (result == NULL) 
+    {
+        perror("Erro ao alocar memória");
+        exit(EXIT_FAILURE);
+    }
     filling(result, (MAX_LEN + 1));
     carry = 0;
     i = MAX_LEN;
@@ -41,20 +44,36 @@ void    sum(char *n1, char *n2)
 		i++;
     if (carry == 1)
 		result[i] = '1';
-    printf("Result (SUM): %s\n", result);
-    free(result);
-    return;
+    return (result);
+}
+
+void    two_complement(char *n)
+{
+    int     i;
+
+    i = 0;
+    while(n[i] != '\0')
+    {
+        if (n[i] == '0')
+            n[i] = '1';
+        else 
+            n[i] = '0';
+        i++;
+    }
+    sum(n, "00000001");
 }
 
 void    complete(char *end, char *start)
 {
-    int		i;
-    int   len_start;
+    int	    i;
+    int     len_start;
 
     i = 0;
     len_start = strlen(start);
+
     while (i < (MAX_LEN - len_start))
         end[i++] = '0';
     strcat(end, start);
+    end[MAX_LEN+1] = '\0';
 }
 

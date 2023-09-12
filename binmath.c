@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include <string.h>
 #include <stdlib.h>
 #include "calc.h"
 
@@ -12,23 +11,24 @@ int		usage()
 
 int			main(int argc, char **argv)
 {
-    char	*nb1;
-    char	*nb2;
+    char	nb1[MAX_LEN + 1];
+    char	nb2[MAX_LEN + 1];
+    char    *sum_result;
     
     if (argc < 3)
         return usage();
-    nb1 = (char*)malloc(sizeof(char) * MAX_LEN);
-    nb2 = (char*)malloc(sizeof(char) * MAX_LEN);
-    if ((nb1 == NULL) || (nb2 == NULL))
-        return EXIT_FAILURE;
     complete(nb1, argv[1]);
+    
     complete(nb2, argv[2]);
-
+    printf("NB1: %s \n", nb1);
     printf("NB1: %s - NB2: %s\n\n", nb1, nb2);
-    sum(nb1, nb2);
+    sum_result = sum(nb1, nb2);
+    // printf("SUM: %s\n", sum_result);
+    // two_complement(nb2);
+    // printf(nb2);
 
-    free(nb1);
-    free(nb2);
+    free(sum_result);
+    // free(nb2);
     return (0);
 }
 
